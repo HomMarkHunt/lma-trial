@@ -1,0 +1,1 @@
+web: java -jar build/libs/lma-trial.jar --server.port=$PORT
