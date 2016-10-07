@@ -18,17 +18,21 @@ import java.io.IOException;
 import java.util.List;
 
 public class EchoController {
+
     public static void main(String[] args) {
+        System.out.print("called");
         SpringApplication.run(EchoController.class, args);
     }
 
     @RestController
     public static class MyController {
+
         @Autowired
         private LineMessagingService lineMessagingService;
 
         @PostMapping("/callback")
         public void callback(@LineBotMessages List<Event> events) throws IOException {
+            System.out.println("Call back called");
             for (Event event : events) {
                 System.out.println("event: " + event);
                 if (event instanceof MessageEvent) {
